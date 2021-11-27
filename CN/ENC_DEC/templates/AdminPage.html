@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Admin Page{% endblock %}
+
+{% block style %}
+  <style>
+.flash{
+  display: flex;
+  justify-content: space-between;
+}
+.flash button{
+  border: none;
+  color: black;
+  background-color: rgba(226, 19, 140, 0)
+}
+.flash button:hover{
+  border: none;
+  color: red;
+
+}
+</style>
+{% endblock style %}
+{% block nav %}
+<a class="nav-link" href="{{url_for("Adminlogout")}}">Logout</a>       
+{% endblock nav %}
+{% block body%}
+
+
+    
+    <div class="container">
+        <h3 class="bg-secondary text-center h-75 p-3 m-3">Admin Page</h3>
+        
+         <form action="/AdminPage" method="POST" enctype="multipart/form-data">
+             <div class="mb-3">
+               <label for="title" class="form-label">Title</label>
+               <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp">
+             </div>
+             <div class="mb-3">
+               <label for="Files" class="form-label">File</label>
+               <input type="file" class="form-control" name="Files" id="file">
+             </div>
+             <div class="mb-3">
+              <label for="key" class="form-label">Key</label>
+              <input type="text" class="form-control" name="key" id="key" placeholder="Enter Key">
+            </div>
+            
+             <button type="submit" class="btn btn-outline-dark ">Submit</button>
+           </form>
+     </div>
+     <div class="container my-3">
+         <h3> Encrypted Files</h3>
+         {% if allres|length==0 %}
+         <div class="alert alert-dark" role="alert">
+            No File is addes till now!
+         </div>
+        {% else %}
+                 <table class="table">
+                   <thead>
+                     <tr>
+                       <th scope="col">SNo</th>
+                       <th scope="col">Title</th>
+                       <th scope="col">Key</th>
+                       <th scope="col">Time</th>
+                       <th scope="col">Action</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+              {% for res in allres %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{res.1}}</td>
+                        <td>{{res.2}}</td>
+                        <td>{{res.5}}</td>
+                        <td>
+                        <a href="/delete/{{res.0}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</a></td>
+                      </tr>
+                    {% endfor %}
+                    {% endif %}
+                
+                    
+              
+                 </tbody>
+           </table>
+     </div>
+    
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+
+   
+{% endblock %}

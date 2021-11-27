@@ -1,0 +1,119 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %}
+{% block style %}
+<style>
+  *{
+      margin: 0;
+      box-sizing: border-box;
+  }
+
+
+ .container-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+      width: 100vw;
+      height: 100vh;
+
+      
+   }
+ 
+  
+.imgcontainer {
+text-align: center;
+margin: 24px 0 12px 0;
+}
+img.avatar {
+width: 30%;
+border-radius: 50%;
+} 
+
+form {
+    
+border: 3px solid #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px ;
+
+  width: 40vw;
+  height: 80vh;
+ text-align: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+input[type=text], input[type=password] {
+width: 80%;
+padding: 12px 20px;
+margin: 10px 10px;
+
+border: 1px solid #ccc;
+box-sizing: border-box;
+
+}
+.btn {
+
+background-color: #04AA6D;
+color: white;
+padding: 15px 10px;
+margin: 10px 10px;
+border: none;
+width: 80%;
+text-decoration: none;
+}
+
+.button-1:hover {
+opacity: 0.8;
+}
+
+.flash{
+  display: flex;
+  justify-content: space-between;
+}
+.flash button{
+  border: none;
+  color: black;
+  background-color: rgba(226, 19, 140, 0)
+}
+.flash button:hover{
+  border: none;
+  color: red;
+
+}
+
+</style>
+{% endblock style %}
+ {% block body
+    %}
+    <div class="container-1">
+      <div class="header">
+          <h1>Login Page</h1>
+      </div>
+  
+          <div class="details">
+              <form  action="/Userlogin" method="POST">
+                  <div class="imgcontainer">
+                    <img src="{{user_img}}" alt="Avatar" class="avatar">
+                  </div>
+                
+                  <div class="container">
+                    <label for="umail"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="umail" id="umail"  required>
+                
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                
+                    <button type="submit" class="btn">Login</button>
+                    <a href="/signin" class="btn">Sign in</a>
+                  </div>
+              </form>
+          </div>
+  </div>
+   
+    {% endblock %}

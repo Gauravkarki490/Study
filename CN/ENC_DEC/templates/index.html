@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block style%}
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+ 
+    .insidecontainer
+    {
+        background-color: black;
+        display:flex;
+        align-items: center;
+        justify-content:space-evenly;
+        text-align: center;
+        
+        height: 100vh;
+        overflow: hidden;
+
+    }
+    
+     .box-1 .btn1 
+     {
+        color: black;
+        text-decoration: none;
+        padding: 100px 140px ;
+        background-color: white;
+        line-height: 1.2rem;
+     }
+     .box-2 .btn1{
+        color: black;
+        text-decoration: none;
+        padding: 100px ;
+        background-color: white;
+        line-height: 1.2rem;
+        
+     }
+   
+     .box-1 .btn1:hover ,
+     .box-2 .btn1:hover{
+        color: white;
+        text-decoration: none;
+        padding: 140px;
+        background-color: #333;
+        line-height: 1.2rem;
+        border-radius: 50%;
+        
+     }
+ 
+     .flash{
+  display: flex;
+  justify-content: space-between;
+}
+.flash button{
+  border: none;
+  color: black;
+  background-color: rgba(226, 19, 140, 0)
+}
+.flash button:hover{
+  border: none;
+  color: red;
+
+}
+
+</style>
+{% endblock style%}
+   
+{% block nav %}
+
+    
+{% endblock nav %}
+
+{% block body %}
+
+    
+<div class="containerl">
+   
+    <div class="insidecontainer">
+        <div class="box-1"> 
+            <a href="/Adminlog"  class="btn1"> Admin Login </a>
+        </div>
+        <div class="box-2">
+            <a href="/Userlogin"  class="btn1"> User Login/Registration</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
